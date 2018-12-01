@@ -73,5 +73,29 @@ Serwer autoryzacji->Redis:Zapisanie sekretu portfela
 Serwer autoryzacji-->Raspberry Wallet:Sukces
 ```
 
+#### Iterational implementation process
+
+```sequence
+loop Zbieranie zadań do wykonania w kolejnej iteracji
+Programista->Issue:Stworzenie nowego Issue\nz propozycją nowej funkcjonalności
+Zespół->Issue:Dyskusja na temat Issue
+Zespół->Issue:Zatwierdzenie Issue
+Programista->Issue:Przypisanie się do implementacji Issue
+end
+Programista->Branch:Implementacja funkcjonalności opisanych w Issues przypisanych do iteracji
+Zespół->Branch:Uwagi na temat\nimplementacji
+Programista->Branch:Zakończenie implementacji funkcjonalności dla danej iteracji
+Programista->Pull Request:Stworzenie nowego pull requesta podsumowującego iterację
+Pull Request->CircleCI:Próba zbudowania\nnowej wersji
+CircleCI->Pull Request:Zatwierdzenie zmian
+Pull Request->Zespół:Prośba o weryfikację
+Zespół->Pull Request:Weryfikacja zmian
+Programista->Branch:Implementacja zmian zasugerowanych przez zespół
+Zespół->Pull Request:Zatwierdzenie zmian
+Programista->Branch:Zmergownie brancha
+Pull Request->Issue:Zamknięcie wykonanych Issues
+Pull Request->Branch:Usunięcie brancha
+Pull Request->Pull Request:Zamknięcie Pull Requesta
+```
 
 ![Contribution guidelines for this project](przypadkiUzycia.png)
