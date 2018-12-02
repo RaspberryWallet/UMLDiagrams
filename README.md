@@ -6,25 +6,26 @@ UML in EAP 9 diagrams
 #### Wallet initialization
 
 ```sequence
-User->Raspberry Wallet:Podanie ziarna portfela
-User->Raspberry Wallet:Podanie danych wejściowych \ndla m modułów
-Raspberry Wallet->Shamir:Wygenerowanie m kluczy\n z czego n jest wymaganych
+Użytkownik->Raspberry Wallet:Podanie ziarna portfela
+Użytkownik->Raspberry Wallet:Podanie danych wejściowych\ndla M modułów
+Raspberry Wallet->Shamir:Wygenerowanie M kluczy\nz czego N jest wymaganych
 loop dla kazdego wybranego modułu
-Raspberry Wallet->Moduły:Ustaw input
-Raspberry Wallet->Moduły:Zaszyfruj czesc klucza
-Raspberry Wallet->Baza Danych:Zapisz zaszyfrowaną czesc klucza\n dla danego modułu 
+Raspberry Wallet->Moduły:Ustaw wymagane dane wejściowe modułu
+Raspberry Wallet->Moduły:Zaszyfruj część klucza
+Raspberry Wallet->Baza Danych:Zapisz zaszyfrowaną część klucza dla danego modułu 
 end 
-Raspberry Wallet->BitcoinJ: stworz portfel na podstawie ziarna
-BitcoinJ->BitcoinJ: synchronizacja
-loop dla kazdego wybranego modułu 
-Raspberry Wallet->Baza Danych:Pobierz zaszyfrowaną \nczęśc klucza 
-Baza Danych-->Raspberry Wallet:Zwróć zaszyfrowaną \nczęść klucza
-Raspberry Wallet->Moduły: Odszyfruj czesc klucza
-Moduły-->Raspberry Wallet: Zwróć odszyfrowanąnczęść klucza
+Raspberry Wallet->BitcoinJ:Stwórz portfel na podstawie ziarna
+BitcoinJ->BitcoinJ:Synchronizacja wewnętrzna
+loop dla każdego wybranego modułu 
+Raspberry Wallet->Baza Danych:Pobierz zaszyfrowaną częśc klucza 
+Baza Danych-->Raspberry Wallet:Zwróć zaszyfrowaną część klucza
+Raspberry Wallet->Moduły:Odszyfruj część klucza
+Moduły-->Raspberry Wallet:Zwróć odszyfrowaną część klucza
 end
-Raspberry Wallet->Shamir: Rekonstrukcja klucza \nna podstawie czesci
+Raspberry Wallet->Shamir: Rekonstrukcja klucza \nna podstawie części
 Shamir-->Raspberry Wallet: Klucz prywatny
 
+Raspberry Wallet->BitcoinJ:Stwórz hash na podstawie klucza prywatnego i przekaż go
 BitcoinJ->BitcoinJ: Zaszyfruj portfel \n haszem klucza prywatnego
 BitcoinJ->BitcoinJ: Zapisz portfel do pliku 
 BitcoinJ->BitcoinJ: Odszyfruj portfel \nhaszem klucza prywatnego
