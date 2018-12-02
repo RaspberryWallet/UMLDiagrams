@@ -99,3 +99,21 @@ Pull Request->Pull Request:Zamknięcie Pull Requesta
 ```
 
 ![Contribution guidelines for this project](przypadkiUzycia.png)
+
+#### P2SH
+```
+Alice->Bob:Podaj mi adres do przelewu
+Bob->Bob:Generuj skomplikowany skrypt do przelewu
+Bob->Bob:Adres P2SH = skrót(skomplikowany skrypt)
+Bob-->Alice: Adres do przelewu
+Alice->Alice:Stwórz i podpisz prostą transakcje \nna otrzymany adres
+Alice->Bitcoin:Opublikuj transakcje
+Bob->Charlie:Podaj mi adres do przelewu
+Charlie->Charlie:Generuj prosty skrypt do przelewu
+Charlie->Charlie:Adres P2PKH = skrót(klucz publiczny) 
+Charlie-->Bob:Adres do przelewu
+Bob->Bob:Stworz i podpisz skomplikowaną transakcje \nna otrzymany adres
+Bob->Bitcoin:Opublikuj transakcje
+```
+![P2SH](https://i.imgur.com/cvQxM4v.png)
+
