@@ -3,6 +3,22 @@ UML in EAP 9 diagrams
 
 ## Sequence diagrams
 
+#### Reading wallet state from JSON file
+
+```sequence
+Użytkownik->Raspberry Wallet:Żądanie odblokowania portfela
+Raspberry Wallet->Użytkownik:Prośba o podanie hasła
+Użytkownik->Raspberry Wallet:Wprowadzenie hasła
+Raspberry Wallet->Plik JSON:Odczytanie zawartości
+Plik JSON-->Raspberry Wallet:
+Raspberry Wallet->Raspberry Wallet:Odszyfrowanie zawartości
+Raspberry Wallet-->Użytkownik:Komunikat o powodzeniu
+alt błędne hasło
+Raspberry Wallet->Raspberry Wallet:Błąd podczas odszyfrowywania
+Raspberry Wallet-->Użytkownik:Komunikat o błędzie
+end
+```
+
 #### Wallet initialization
 
 ```sequence
@@ -70,7 +86,17 @@ Serwer autoryzacji-->Raspberry Wallet: Zwrócenie tokenu sesji
 
 Raspberry Wallet->Serwer autoryzacji:Zapisanie sekretu modułu(token, sekret)
 Serwer autoryzacji->Redis:Weryfikacja tokenu sesji
-Serwer autoryzacji->Redis:Zapisanie sekretu portfela
+Serwer autoryzacji->Redis:Zapisanie sekretu portfelaUżytkownik->Raspberry Wallet:Żądanie odblokowania portfela
+Raspberry Wallet->Użytkownik:Prośba o podanie hasła
+Użytkownik->Raspberry Wallet:Wprowadzenie hasła
+Raspberry Wallet->Plik JSON:Odczytanie zawartości
+Plik JSON-->Raspberry Wallet:
+Raspberry Wallet->Raspberry Wallet:Odszyfrowanie zawartości
+Raspberry Wallet-->Użytkownik:Komunikat o powodzeniu
+alt błędne hasło
+Raspberry Wallet->Raspberry Wallet:Błąd podczas odszyfrowywania
+Raspberry Wallet-->Użytkownik:Komunikat o błędzie
+end
 Serwer autoryzacji-->Raspberry Wallet:Sukces
 ```
 
