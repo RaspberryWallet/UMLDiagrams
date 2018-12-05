@@ -60,7 +60,7 @@ Raspberry Wallet->Raspberry Wallet: Wczytanie [1 z n] zaszyfrowanych sekretów
 Raspberry Wallet->Moduły: Żądanie odszyfrowania sekretu
 Moduły-->Raspberry Wallet: Zwrócenie odszyfrowanego sekretu
   alt błąd
-  Moduły->Raspberry Wallet: Bład odszyfrowywania
+  Moduły->Raspberry Wallet: Błąd odszyfrowywania
   end
 end
 
