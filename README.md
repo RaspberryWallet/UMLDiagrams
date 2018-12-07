@@ -130,15 +130,15 @@ Pull Request->Pull Request:Zamknięcie Pull Requesta
 Alice->Bob:Podaj mi adres do przelewu
 Bob->Bob:Generuj skomplikowany skrypt do przelewu
 Bob->Bob:Adres P2SH = skrót(skomplikowany skrypt)
-Bob-->Alice: Adres do przelewu
+Bob-->Alice:Adres do przelewu
 Alice->Alice:Stwórz i podpisz prostą transakcje \nna otrzymany adres
-Alice->Bitcoin:Opublikuj transakcje
+Alice->Bitcoin:Opublikuj transakcję
 Bob->Charlie:Podaj mi adres do przelewu
 Charlie->Charlie:Generuj prosty skrypt do przelewu
 Charlie->Charlie:Adres P2PKH = skrót(klucz publiczny) 
 Charlie-->Bob:Adres do przelewu
-Bob->Bob:Stworz i podpisz skomplikowaną transakcje \nna otrzymany adres
-Bob->Bitcoin:Opublikuj transakcje
+Bob->Bob:Stwórz i podpisz skomplikowaną transakcję\nna otrzymany adres
+Bob->Bitcoin:Opublikuj transakcję
 ```
 ![P2SH](https://i.imgur.com/cvQxM4v.png)
 
