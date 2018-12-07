@@ -22,6 +22,12 @@ end
 #### Wallet initialization
 
 ```sequence
+Użytkownik->Raspberry Wallet:Podanie hasła głównego
+Raspberry Wallet->Baza Danych:Rozszyfruj bazę danych \nhasłem głównym
+
+Baza Danych->Baza Danych: Rozszyfrowanie bazy danych \ni wczytanie jej \ndo pamięci RAM
+Baza Danych-->Raspberry Wallet:
+Raspberry Wallet-->Użytkownik: 
 Użytkownik->Raspberry Wallet:Podanie ziarna portfela
 Użytkownik->Raspberry Wallet:Podanie danych wejściowych\ndla M modułów
 Raspberry Wallet->Shamir:Wygenerowanie M kluczy\nz czego N jest wymaganych
