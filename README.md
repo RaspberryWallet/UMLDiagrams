@@ -125,10 +125,8 @@ Pull Request->Branch:Usunięcie brancha
 Pull Request->Pull Request:Zamknięcie Pull Requesta
 ```
 
-![Contribution guidelines for this project](przypadkiUzycia.png)
-
 #### P2SH
-```
+```sequence
 Alice->Bob:Podaj mi adres do przelewu
 Bob->Bob:Generuj skomplikowany skrypt do przelewu
 Bob->Bob:Adres P2SH = skrót(skomplikowany skrypt)
@@ -143,4 +141,8 @@ Bob->Bob:Stworz i podpisz skomplikowaną transakcje \nna otrzymany adres
 Bob->Bitcoin:Opublikuj transakcje
 ```
 ![P2SH](https://i.imgur.com/cvQxM4v.png)
+
+
+![Contribution guidelines for this project](przypadkiUzycia.png)
+
 
